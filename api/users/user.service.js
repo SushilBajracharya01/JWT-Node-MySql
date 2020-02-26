@@ -1,8 +1,8 @@
-const pool = require("../../config/database");
+const dbCon = require("../../config/database");
 
 module.exports={
     create: (data, callBack) => {
-        pool.query(
+        dbCon.query(
             `insert into registration (firstname, lastname, gender, email, password, number)
             values (
                 ?,?,?,?,?,?

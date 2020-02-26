@@ -1,13 +1,16 @@
-const { createPool } = require('mysql');
+const mysql = require('mysql');
 
 
-const pool = createPool({
-    port: process.env.DB_PORT,
+const dbCon = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
-    database: process.env.MYSQL_DB,
-    connection_init: 10
+    database: process.env.MYSQL_DB
 });
 
-module.exports = pool;
+dbCon.connect((err) => {
+    if (err) throw err;
+    console.log('connected');
+})
+
+module.exports = dbCon;
