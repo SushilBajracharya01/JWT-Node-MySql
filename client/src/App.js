@@ -1,17 +1,15 @@
 import React from 'react';
-
+import LoginForm from './components/LoginForm';
+import Hooks from './components/Hooks';
 import './App.css';
 
-const App = ({
-  values,
-  handleChange
-}) => {
+const App = () => {
   return (
-    <div className="App">
-      <input type="email" name="email" id="email" placeholder="Email" value={values.email} onChange={handleChange} />
-      <input type="password" name="password" id="password" placeholder="******" value={values.password} onChange={handleChange} />
-    </div>
-  );
+    <React.Fragment>
+      <LoginForm />
+      <Hooks />
+    </React.Fragment>
+  )
 }
 
 export default App;
